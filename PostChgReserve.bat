@@ -1,18 +1,18 @@
 @ECHO OFF
 CHCP 65001 > NUL
 
-REM // ウインドウを非表示にする
+REM // Hide the command prompt window
 REM _EDCBX_HIDE_
 
-REM // パラメータを環境変数に渡す
+REM // Pass parameters to environment variables
 REM _EDCBX_DIRECT_
 
-REM // 視聴予約なら終了
+REM // If you have booked a viewing, it is not executed
 if "%RecMode%" == "4" (
   goto :eof
 )
 
-REM // edcb-notifier.py を実行
+REM // Execute edcb-notifier.py
 CD %~dp0\edcb-notifier
 .\python-3.9.13-embed-amd64\python.exe .\edcb-notifier.py --PostChgReserve
 
