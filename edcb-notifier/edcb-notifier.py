@@ -8,7 +8,7 @@ from edcbnotifier.enutil import ENUtil
 
 def main():
 
-    with open('config.json', 'r') as f:
+    with open('../config.json', 'r') as f:
         config = json.load(f)
 
     parser = argparse.ArgumentParser(description='edcb-notifier')
@@ -22,7 +22,7 @@ def main():
     macros = ENUtil.getMacro(os.environ)
 
     if args.PostAddReserve:
-        engc = ENGC(config['calendar_id'])
+        engc = ENGC(config['calendar-id'])
         engc.add_event(macros)
 
 
